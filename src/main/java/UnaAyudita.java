@@ -4,7 +4,7 @@ public class UnaAyudita {
     public static void main(String[] args) {
         System.out.println("1 - Temporadas 1 a 4  ");
         int season = (int) (Math.random() * 5)+1; // esta seccion corre automaticamente, por lo que  1 - 5 para que haya posibilidad de que input sea default
-        System.out.println(season);
+        //System.out.println(season);    debugging
 
         switch (season) {
             case 1: //
@@ -64,18 +64,20 @@ public class UnaAyudita {
 
         System.out.println("Han donado: " + peopleCounter + " personas");
         System.out.println("Total donado: " + totalDonation);
+        System.out.println("Presione 'Enter' para continuar");
 
 
         //3
-        scanner.hasNextLine();
+        scanner.nextLine();
 
         System.out.println("3 Archivo 'sonoro' \n");
-        System.out.println("1 -4");
+
         boolean continueProgram = true;
 
         while (continueProgram) {
+            System.out.println(" 1 - Cohete \n 2 - Coche \n 3 - Perro \n 4 - Salir");
             int caseOption = scanner.nextInt();
-            scanner.hasNextLine();
+            scanner.nextLine(); //limpiar buffer
 
 
 
@@ -102,8 +104,20 @@ public class UnaAyudita {
                 System.out.println("Sin sonido, no es una opción válida");
 
         }
+
+            if (continueProgram) {
+                System.out.println("\n¿Quieres escuchar otro sonido? ");
+                String seguir = scanner.nextLine().toLowerCase();
+                if (!seguir.equals("si") && !seguir.equals("s")) {
+                    System.out.println("Adios");
+                    continueProgram = false;
+                }
+            }
+
     }
     //end of main
+
+        scanner.close();
     }
 
 }
